@@ -41,12 +41,13 @@ const getScore = (playerMove, computerMove) => {
 }
 
 const getInput = () => {
-    let playerMove, valid
+    let playerMove, valid, input
     let prompt = "Enter your move: (Rock/Paper/Scissors)"
     do {
-        playerMove = toSentenceCase(window.prompt(prompt))
+        input = window.prompt(prompt)
+        if (input) playerMove = toSentenceCase(input)
         valid = moveOptions.includes(playerMove)
-        if (!valid) prompt = "Invalid move! " + prompt
+        if (!valid) window.alert("Invalid move!")
     } while (!valid)
 
     return playerMove
@@ -62,10 +63,13 @@ const playOneRound = () => {
     switch (delta) {
         case 1:
             alert += "You won!"
+            break
         case -1:
             alert += "You lost!"
+            break
         case 0:
             alert += "It's a tie!"
+            break
     }
 
     window.alert(alert)
@@ -81,3 +85,5 @@ const game = () => {
 
     window.alert(`Game over! Your score is ${score}`)
 }
+
+game();
