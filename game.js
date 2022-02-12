@@ -51,3 +51,9 @@ const getInput = () => {
 
     return playerMove
 }
+
+const playOneRound = () => {
+    const playerMove = getInput()
+    const computerMove = computerPlay()
+    return getScore(playerMove, computerMove)
+}
