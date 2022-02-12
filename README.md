@@ -1,2 +1,2 @@
-# rock_paper_scissors_nodejs
-Console-based rock, paper, scissors game built for Node.js
+# rock_paper_scissors
+Console-based rock, paper, scissors game built using Javascript
