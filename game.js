@@ -29,11 +29,7 @@ const outcomeMachine = {
 const computerPlay = () => randomFrom(moveOptions)
 
 const getScore = (playerMove, computerMove) => {
-    let outcome
-    
-    playerMove = toSentenceCase(playerMove)
-    outcome = outcomeMachine[playerMove][computerMove]
-
+    const outcome = outcomeMachine[playerMove][computerMove]
     switch (outcome) {
         case "Won":
             return 1
@@ -42,4 +38,16 @@ const getScore = (playerMove, computerMove) => {
         default:
             return 0
     }
+}
+
+const getInput = () => {
+    let playerMove, valid
+    let prompt = "Enter your move: (Rock/Paper/Scissors)"
+    do {
+        playerMove = toSentenceCase(window.prompt(prompt))
+        valid = moveOptions.includes(playerMove)
+        if (!valid) prompt = "Invalid move! " + prompt
+    } while (!valid)
+
+    return playerMove
 }
