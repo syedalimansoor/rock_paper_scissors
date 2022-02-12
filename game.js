@@ -55,5 +55,29 @@ const getInput = () => {
 const playOneRound = () => {
     const playerMove = getInput()
     const computerMove = computerPlay()
-    return getScore(playerMove, computerMove)
+    const delta = getScore(playerMove, computerMove)
+
+    let alert = `The computer chose ${computerMove}! `
+
+    switch (delta) {
+        case 1:
+            alert += "You won!"
+        case -1:
+            alert += "You lost!"
+        case 0:
+            alert += "It's a tie!"
+    }
+
+    window.alert(alert)
+    return delta
+}
+
+const game = () => {
+    let score = 0;
+
+    for (let i = 0; i < 5; i++) {
+        score += playOneRound()
+    }
+
+    window.alert(`Game over! Your score is ${score}`)
 }
